@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GPT-Like Chat</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-box">
+      <% messages.forEach(msg => { %>
+        <div class="message <%= msg.from === 'user' ? 'user' : 'bot' %>">
+          <p><%= msg.text %></p>
+        </div>
+      <% }) %>
+    </div>
+
+    <form action="/send" method="POST" class="input-form">
+      <input type="text" name="message" placeholder="Mesajınızı yazın..." autocomplete="off" required>
+      <button type="submit">Gönder</button>
+    </form>
+  </div>
+</body>
+</html>
